@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squares & Cubes Speed Drill</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      /* slate-900 */
+      --card: #111827;
+      /* gray-900 */
+      --ink: #e5e7eb;
+      /* gray-200 */
+      --muted: #9ca3af;
+      /* gray-400 */
+      --accent: #22d3ee;
+      /* cyan-400 */
+      --good: #22c55e;
+      /* green-500 */
+      --bad: #ef4444;
+      /* red-500 */
+      --warn: #f59e0b;
+      /* amber-500 */
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica, Arial, sans-serif;
+      background: radial-gradient(80% 60% at 50% 0%, #111827 0%, #0b1224 55%, var(--bg) 100%);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .app {
+      width: min(900px, 100%);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .35)
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin-bottom: 14px
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center
+    }
+
+    .row>* {
+      flex: 0 0 auto
+    }
+
+    .pill {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 8px 12px;
+      cursor: pointer;
+      user-select: none
+    }
+
+    .pill[aria-pressed="true"] {
+      background: rgba(34, 211, 238, .15);
+      border-color: rgba(34, 211, 238, .5);
+      color: #cffafe
+    }
+
+    label {
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    input[type="number"] {
+      width: 90px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: #0b1020;
+      color: var(--ink)
+    }
+
+    button {
+      background: var(--accent);
+      color: #001018;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: not-allowed
+    }
+
+    .hr {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 14px 0
+    }
+
+    .stage {
+      display: none
+    }
+
+    .stage.active {
+      display: block
+    }
+
+    .qwrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center
+    }
+
+    .qtext {
+      font-size: 26px;
+      font-weight: 800
+    }
+
+    .answer {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .answer input {
+      width: 200px;
+      font-size: 22px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: #0b1020;
+      color: var(--ink)
+    }
+
+    .meta {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      margin-top: 10px
+    }
+
+    .timer {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .timer svg {
+      position: absolute;
+      inset: 0;
+      transform: rotate(-90deg)
+    }
+
+    .timer .num {
+      font-weight: 900;
+      font-size: 26px
+    }
+
+    .ring {
+      stroke: var(--accent);
+      stroke-width: 10;
+      fill: none;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 6px rgba(34, 211, 238, .6))
+    }
+
+    .toast {
+      margin-top: 10px;
+      font-weight: 700
+    }
+
+    .toast.good {
+      color: var(--good)
+    }
+
+    .toast.bad {
+      color: var(--bad)
+    }
+
+    .toast.warn {
+      color: var(--warn)
+    }
+
+    .score {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: #0b1020;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 6px;
+      padding: 2px 6px
+    }
+
+    .summary {
+      display: grid;
+      gap: 8px
+    }
+
+    .summary h2 {
+      margin: 0
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .tile {
+      background: #0b1020;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 12px;
+      padding: 12px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app card">
+    <h1>Squares & Cubes Speed Drill</h1>
+    <div class="sub">Practice under time pressure. You get <strong>5 seconds</strong> per question. Choose type and
+      number of questions, then press <em>Start</em>.</div>
+
+    <!-- Controls -->
+    <div class="row" role="group" aria-label="Quiz type">
+      <div id="mode-sq" class="pill" role="button" aria-pressed="true" tabindex="0">Squares (11–25)</div>
+      <div id="mode-cu" class="pill" role="button" aria-pressed="false" tabindex="0">Cubes (1–20)</div>
+      <div style="margin-left:auto"></div>
+      <label for="qcount">Questions</label>
+      <input id="qcount" type="number" min="1" max="200" value="20" />
+      <button id="startBtn">Start ▶</button>
+    </div>
+
+    <div class="hr"></div>
+
+    <!-- Quiz Stage -->
+    <div id="stage-quiz" class="stage">
+      <div class="qwrap">
+        <div class="qtext" id="qText">Question will appear here</div>
+        <div class="timer" aria-label="time left">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="44" stroke="rgba(255,255,255,.08)" stroke-width="10" fill="none"></circle>
+            <circle id="ring" class="ring" cx="50" cy="50" r="44" stroke-dasharray="276.46" stroke-dashoffset="0">
+            </circle>
+          </svg>
+          <div class="num" id="tNum">5</div>
+        </div>
+      </div>
+
+      <div class="answer">
+        <input id="answer" type="number" inputmode="numeric" autocomplete="off" placeholder="Your answer" />
+        <button id="submitBtn">Submit</button>
+      </div>
+
+      <div class="meta">
+        <div><span id="idx">0</span>/<span id="total">0</span></div>
+        <div>Score: <strong id="score">0</strong></div>
+        <div>Press <span class="kbd">Enter</span> to submit</div>
+      </div>
+
+      <div id="toast" class="toast" aria-live="polite"></div>
+    </div>
+
+    <!-- Summary Stage -->
+    <div id="stage-summary" class="stage">
+      <div class="summary">
+        <h2>Great job! 🎉</h2>
+        <div class="grid">
+          <div class="tile">Correct: <strong id="corr"></strong></div>
+          <div class="tile">Wrong/Timeout: <strong id="wrong"></strong></div>
+          <div class="tile">Accuracy: <strong id="acc"></strong></div>
+          <div class="tile">Time per Q: <strong>5s fixed</strong></div>
+        </div>
+        <div>
+          <button id="again">Go Again</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      const modeSq = document.getElementById('mode-sq');
+      const modeCu = document.getElementById('mode-cu');
+      const qcount = document.getElementById('qcount');
+      const startBtn = document.getElementById('startBtn');
+
+      const stageQuiz = document.getElementById('stage-quiz');
+      const stageSummary = document.getElementById('stage-summary');
+
+      const qText = document.getElementById('qText');
+      const tNum = document.getElementById('tNum');
+      const ring = document.getElementById('ring');
+      const ans = document.getElementById('answer');
+      const submitBtn = document.getElementById('submitBtn');
+      const toast = document.getElementById('toast');
+      const idxEl = document.getElementById('idx');
+      const totalEl = document.getElementById('total');
+      const scoreEl = document.getElementById('score');
+
+      const corrEl = document.getElementById('corr');
+      const wrongEl = document.getElementById('wrong');
+      const accEl = document.getElementById('acc');
+      const againBtn = document.getElementById('again');
+
+      let currentMode = 'sq'; // 'sq' or 'cu'
+      let timerId = null;
+      const TIME_PER_Q = 5; // seconds
+      const CIRC = 2 * Math.PI * 44; // circle path length
+
+      let questions = [];
+      let i = 0;
+      let score = 0;
+
+      function setMode(mode) {
+        currentMode = mode;
+        modeSq.setAttribute('aria-pressed', mode === 'sq');
+        modeCu.setAttribute('aria-pressed', mode === 'cu');
+      }
+      modeSq.addEventListener('click', () => setMode('sq'));
+      modeCu.addEventListener('click', () => setMode('cu'));
+      modeSq.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { setMode('sq'); } });
+      modeCu.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { setMode('cu'); } });
+
+      function range(n) { return Array.from({ length: n }, (_, k) => k + 1); }
+
+      function buildQuestions(mode, n) {
+        const out = [];
+        const randIntInclusive = (min, max) =>
+          Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if (mode === 'sq') {
+          // squares from 11..25
+          for (let k = 0; k < n; k++) {
+            const a = randIntInclusive(16, 24);
+            const direction = Math.random() < 0.5 ? 'forward' : 'reverse';
+            if (direction === 'forward') {
+              out.push({
+                prompt: `Square of ${a} is _______`,
+                answer: String(a * a),
+                explain: `${a} × ${a} = ${a * a}`
+              });
+            } else {
+              const sq = a * a;
+              out.push({
+                prompt: `Under root ${sq} is _______`,
+                answer: String(a),
+                explain: `√${sq} = ${a}`
+              });
+            }
+          }
+        } else {
+          // cubes from 4..20
+          for (let k = 0; k < n; k++) {
+            const a = randIntInclusive(4, 20);
+            const direction = Math.random() < 0.5 ? 'forward' : 'reverse';
+            if (direction === 'forward') {
+              out.push({
+                prompt: `Cube of ${a} is _______`,
+                answer: String(a * a * a),
+                explain: `${a} × ${a} × ${a} = ${a * a * a}`
+              });
+            } else {
+              const cu = a * a * a;
+              out.push({
+                prompt: `Cube root of ${cu} is _______`,
+                answer: String(a),
+                explain: `∛${cu} = ${a}`
+              });
+            }
+          }
+        }
+        return out;
+      }
+
+
+
+      function show(el) { el.classList.add('active'); }
+      function hide(el) { el.classList.remove('active'); }
+
+      function start() {
+        const n = Math.max(1, Math.min(200, Number(qcount.value || 20)));
+        questions = buildQuestions(currentMode, n);
+        i = 0; score = 0;
+        scoreEl.textContent = '0';
+        totalEl.textContent = String(questions.length);
+        toast.textContent = '';
+        hide(stageSummary); show(stageQuiz);
+        next();
+      }
+
+      function startTimer() {
+        clearInterval(timerId);
+        let left = TIME_PER_Q; // seconds
+        tNum.textContent = left;
+        ring.setAttribute('stroke-dasharray', CIRC);
+        ring.setAttribute('stroke-dashoffset', '0');
+        const step = 100; // ms
+        let elapsed = 0;
+        timerId = setInterval(() => {
+          elapsed += step;
+          const frac = Math.min(1, elapsed / (TIME_PER_Q * 1000));
+          const remain = Math.ceil((TIME_PER_Q * 1000 - elapsed) / 1000);
+          tNum.textContent = Math.max(0, remain);
+          ring.setAttribute('stroke-dashoffset', String(frac * CIRC));
+          if (frac >= 1) {
+            clearInterval(timerId);
+            reveal(false, true); // timeout counts as wrong
+          }
+        }, step);
+      }
+
+      function ask(q) {
+        qText.textContent = q.prompt;
+        ans.value = '';
+        ans.focus();
+        idxEl.textContent = String(i + 1);
+        startTimer();
+      }
+
+      function reveal(isCorrect, timedOut = false) {
+        clearInterval(timerId);
+        const q = questions[i];
+        if (isCorrect) {
+          toast.textContent = 'Correct! ' + q.explain;
+          toast.className = 'toast good';
+          score++; scoreEl.textContent = String(score);
+        } else if (timedOut) {
+          toast.textContent = `⏱️ Time up! ${q.explain}`;
+          toast.className = 'toast warn';
+        } else {
+          toast.textContent = `Wrong. ${q.explain}`;
+          toast.className = 'toast bad';
+        }
+        setTimeout(() => {
+          i++;
+          if (i < questions.length) next(); else finish();
+        }, 650);
+      }
+
+      function submit() {
+        const q = questions[i];
+        const val = (ans.value || '').trim();
+        if (val === '') return; // ignore empty
+        const ok = val === q.answer;
+        reveal(ok, false);
+      }
+
+      function next() {
+        toast.textContent = '';
+        ask(questions[i]);
+      }
+
+      function finish() {
+        hide(stageQuiz); show(stageSummary);
+        corrEl.textContent = String(score);
+        const wrong = questions.length - score;
+        wrongEl.textContent = String(wrong);
+        const acc = questions.length ? Math.round((score / questions.length) * 100) : 0;
+        accEl.textContent = acc + '%';
+      }
+
+      // events
+      startBtn.addEventListener('click', start);
+      againBtn.addEventListener('click', () => {
+        hide(stageSummary);
+        show(stageQuiz);
+      });
+      submitBtn.addEventListener('click', submit);
+      ans.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+    })();
+  </script>
+</body>
+
+</html>
