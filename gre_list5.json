@@ -1,0 +1,550 @@
+[
+    {
+        "word": "abash",
+        "definition": "to make ashamed; to embarrass"
+    },
+    {
+        "word": "abject",
+        "definition": "hopeless, extremely sad; defeated; wretched"
+    },
+    {
+        "word": "abnegate",
+        "definition": "to deny oneself things; to reject; to renounce"
+    },
+    {
+        "word": "abrogate",
+        "definition": "to abolish or repeal formally; to set aside; to nullify a law or a decree"
+    },
+    {
+        "word": "abstemious",
+        "definition": "sparing or moderate, especially in eating and drinking"
+    },
+    {
+        "word": "abstract",
+        "definition": "hard to understand or grasp"
+    },
+    {
+        "word": "abysmal",
+        "definition": "extremely hopeless or wretched; bottomless"
+    },
+    {
+        "word": "accede",
+        "definition": "to give in; to yield; to agree"
+    },
+    {
+        "word": "accretion",
+        "definition": "to increase by growth or addition"
+    },
+    {
+        "word": "cite",
+        "definition": "to bring forward as an example or as proof; to cite"
+    },
+    {
+        "word": "affable",
+        "definition": "easy to talk to; friendly"
+    },
+    {
+        "word": "affectation",
+        "definition": "unnatural or artificial behavior, usually intended to impress"
+    },
+    {
+        "word": "aggregate",
+        "definition": "sum total; a collection of separate things mixed together"
+    },
+    {
+        "word": "aghast",
+        "definition": "terrified; shocked"
+    },
+    {
+        "word": "allege",
+        "definition": "to assert without proof"
+    },
+    {
+        "word": "allusion",
+        "definition": "an indirect reference to something else; a hint"
+    },
+    {
+        "word": "ambience",
+        "definition": "atmosphere; mood; feeling"
+    },
+    {
+        "word": "ambivalent",
+        "definition": "undecided; having opposing feelings simultaneously"
+    },
+    {
+        "word": "amiable",
+        "definition": "friendly; agreeable"
+    },
+    {
+        "word": "amorphous",
+        "definition": "shapeless; blob like"
+    },
+    {
+        "word": "anathema",
+        "definition": "something or someone loathed or detested; a formal ecclesiastical curse and excommunication"
+    },
+    {
+        "word": "ancillary",
+        "definition": "subordinate; providing assistance"
+    },
+    {
+        "word": "animosity",
+        "definition": "resentment; hostility; ill will"
+    },
+    {
+        "word": "antecedent",
+        "definition": "something that went before; a preceding cause or event"
+    },
+    {
+        "word": "antipathy",
+        "definition": "firm dislike; a strong feeling of aversion"
+    },
+    {
+        "word": "antithesis",
+        "definition": "the direct opposite"
+    },
+    {
+        "word": "apex",
+        "definition": "highest point; zenith; pinnacle; apogee; summit"
+    },
+    {
+        "word": "aphorism",
+        "definition": "a brief, witty saying; a proverb"
+    },
+    {
+        "word": "apocryphal",
+        "definition": "of dubious authenticity; fictitious"
+    },
+    {
+        "word": "apostasy",
+        "definition": "abandonment or rejection of faith or loyalty"
+    },
+    {
+        "word": "appropriate",
+        "definition": "distinctly suitable; pertinent"
+    },
+    {
+        "word": "arrogate",
+        "definition": "to take without permission; to set aside for a particular use"
+    },
+    {
+        "word": "arbiter",
+        "definition": "one who decides; a judge"
+    },
+    {
+        "word": "arcane",
+        "definition": "mysterious; known only to a select few; esoteric"
+    },
+    {
+        "word": "archetype",
+        "definition": "an original model or pattern"
+    },
+    {
+        "word": "arrant",
+        "definition": "utter; unmitigated; very bad"
+    },
+    {
+        "word": "astute",
+        "definition": "shrewd; keen in judgment"
+    },
+    {
+        "word": "attrition",
+        "definition": "a gradual wearing away, weakening, or loss; a natural decrease in numbers or size"
+    },
+    {
+        "word": "augment",
+        "definition": "to make bigger; to add to; to increase"
+    },
+    {
+        "word": "auspicious",
+        "definition": "favorable; promising"
+    },
+    {
+        "word": "avow",
+        "definition": "to claim; to declare boldly; to admit"
+    },
+    {
+        "word": "banal",
+        "definition": "unoriginal; ordinary; trite; hackneyed"
+    },
+    {
+        "word": "belabor",
+        "definition": "to go over repeatedly or to an absurd extent"
+    },
+    {
+        "word": "beleaguer",
+        "definition": "to surround; to besiege; to harass"
+    },
+    {
+        "word": "belie",
+        "definition": "to give a false impression of; to contradict"
+    },
+    {
+        "word": "benign",
+        "definition": "gentle; not harmful; kind; mild"
+    },
+    {
+        "word": "blight",
+        "definition": "to deprive or leave desolate, especially through death"
+    },
+    {
+        "word": "blithe",
+        "definition": "carefree; cheerful"
+    },
+    {
+        "word": "broach",
+        "definition": "to open up a subject for discussion, often a delicate subject"
+    },
+    {
+        "word": "browbeat",
+        "definition": "to bear or tolerate; to put up with something"
+    },
+    {
+        "word": "callow",
+        "definition": "immature; childish; puerile"
+    },
+    {
+        "word": "cardinal",
+        "definition": "most important; chief"
+    },
+    {
+        "word": "catholic",
+        "definition": "universal; embracing everything"
+    },
+    {
+        "word": "cavil",
+        "definition": "to quibble; to raise trivial objections"
+    },
+    {
+        "word": "chagrin",
+        "definition": "humiliation; embarrassed disappointment"
+    },
+    {
+        "word": "choleric",
+        "definition": "hot-tempered; quick to anger"
+    },
+    {
+        "word": "circumspect",
+        "definition": "cautious; to look around"
+    },
+    {
+        "word": "coalesce",
+        "definition": "to come together as one; to fuse; to unite; to commingle; amalgamate"
+    },
+    {
+        "word": "coda",
+        "definition": "a passage concluding a musical composition"
+    },
+    {
+        "word": "cogent",
+        "definition": "fully informed; knowledgeable; aware"
+    },
+    {
+        "word": "collusion",
+        "definition": "conspiracy; secret cooperation"
+    },
+    {
+        "word": "commensurate",
+        "definition": "equal; proportionate"
+    },
+    {
+        "word": "conciliatory",
+        "definition": "making peace; attempting to resolve a dispute through goodwill"
+    },
+    {
+        "word": "consecrate",
+        "definition": "to make or declare sacred"
+    },
+    {
+        "word": "consonant",
+        "definition": "harmonious; in agreement"
+    },
+    {
+        "word": "consummate",
+        "definition": "perfect; complete; supremely skillful"
+    },
+    {
+        "word": "contumely",
+        "definition": "rudeness; insolence; arrogance"
+    },
+    {
+        "word": "convivial",
+        "definition": "fond of partying; festive; friendly"
+    },
+    {
+        "word": "copious",
+        "definition": "abundant; plentiful; plethora; scads"
+    },
+    {
+        "word": "corroborate",
+        "definition": "to confirm; to back up with evidence"
+    },
+    {
+        "word": "coterie",
+        "definition": "a select group of close associates; clique"
+    },
+    {
+        "word": "countenance",
+        "definition": "face; facial expression"
+    },
+    {
+        "word": "covet",
+        "definition": "to wish for enviously"
+    },
+    {
+        "word": "cull",
+        "definition": "to pick out from among many; to select; to collect"
+    },
+    {
+        "word": "curiosity",
+        "definition": "hasty; superficial"
+    },
+    {
+        "word": "daunt",
+        "definition": "to make fearful; to intimidate"
+    },
+    {
+        "word": "debacle",
+        "definition": "a sudden disastrous collapse, downfall, or defeat; a rout"
+    },
+    {
+        "word": "debauchery",
+        "definition": "corruption by sensuality; intemperance; wild living"
+    },
+    {
+        "word": "decorous",
+        "definition": "in good taste; orderly; proper"
+    },
+    {
+        "word": "deleterious",
+        "definition": "harmful"
+    },
+    {
+        "word": "deluge",
+        "definition": "a flood"
+    },
+    {
+        "word": "deprecate",
+        "definition": "to express disapproval of"
+    },
+    {
+        "word": "dilapidated",
+        "definition": "broken-down; fallen into ruin"
+    },
+    {
+        "word": "discomfort",
+        "definition": "to confuse; to disconcert; to thwart the plans of; to defeat in battle"
+    },
+    {
+        "word": "discourse",
+        "definition": "to converse; to formally discuss a subject"
+    },
+    {
+        "word": "doggerel",
+        "definition": "comic, loose verse"
+    },
+    {
+        "word": "egregious",
+        "definition": "extremely bad; flagrant"
+    },
+    {
+        "word": "elucidate",
+        "definition": "to explain; to make understandable"
+    },
+    {
+        "word": "empirical",
+        "definition": "relying on experience or observation; not merely theoretical"
+    },
+    {
+        "word": "endemic",
+        "definition": "native; belonging to a specific region or people"
+    },
+    {
+        "word": "enormity",
+        "definition": "extreme evil or wickedness; cruelty in excess"
+    },
+    {
+        "word": "epicure",
+        "definition": "a person with refined taste in wine and food; gourmet"
+    },
+    {
+        "word": "epitome",
+        "definition": "the perfect example of something; a paradigm"
+    },
+    {
+        "word": "equanimity",
+        "definition": "composure; calm"
+    },
+    {
+        "word": "eschew",
+        "definition": "to avoid; to shun"
+    },
+    {
+        "word": "espouse",
+        "definition": "to support; to advocate"
+    },
+    {
+        "word": "evince",
+        "definition": "to show or demonstrate clearly; manifest"
+    },
+    {
+        "word": "exhort",
+        "definition": "to urge strongly"
+    },
+    {
+        "word": "explication",
+        "definition": "a setting forth of meaning or intent; a discourse intended to explain"
+    },
+    {
+        "word": "extol",
+        "definition": "to praise highly"
+    },
+    {
+        "word": "facile",
+        "definition": "fluent; skillful in a superficial way; easy"
+    },
+    {
+        "word": "fatuous",
+        "definition": "foolish; silly; idiotic"
+    },
+    {
+        "word": "fetter",
+        "definition": "to restrain; to hamper"
+    },
+    {
+        "word": "flag",
+        "definition": "to weaken; to slow down"
+    },
+    {
+        "word": "flippant",
+        "definition": "frivolously shallow and disrespectful"
+    },
+    {
+        "word": "foment",
+        "definition": "to stir up; to instigate"
+    },
+    {
+        "word": "forbear",
+        "definition": "to refrain from; to abstain"
+    },
+    {
+        "word": "founder",
+        "definition": "to fail; to collapse; to sink"
+    },
+    {
+        "word": "fulsome",
+        "definition": "offensively flattering or insincere; repulsive"
+    },
+    {
+        "word": "gainsay",
+        "definition": "to deny; to speak or act against"
+    },
+    {
+        "word": "gambit",
+        "definition": "a scheme to gain an advantage; a ploy"
+    },
+    {
+        "word": "genial",
+        "definition": "cheerful and pleasant; friendly; helpful"
+    },
+    {
+        "word": "germane",
+        "definition": "applicable; pertinent; relevant"
+    },
+    {
+        "word": "gratis",
+        "definition": "free of charge"
+    },
+    {
+        "word": "gratuitous",
+        "definition": "given freely (said of something bad); unjustified; unprovoked; uncalled for"
+    },
+    {
+        "word": "guile",
+        "definition": "cunning; duplicity; artfulness"
+    },
+    {
+        "word": "harbinger",
+        "definition": "a forerunner; a signal of"
+    },
+    {
+        "word": "hermetic",
+        "definition": "impervious to external influence; airtight"
+    },
+    {
+        "word": "ignominy",
+        "definition": "deep disgrace"
+    },
+    {
+        "word": "impetuous",
+        "definition": "acting without thought; impulsive"
+    },
+    {
+        "word": "impious",
+        "definition": "not pious; irreverent"
+    },
+    {
+        "word": "impugn",
+        "definition": "to attack as false or questionable"
+    },
+    {
+        "word": "incandescent",
+        "definition": "brilliant; giving off heat or light"
+    },
+    {
+        "word": "incipient",
+        "definition": "beginning; emerging"
+    },
+    {
+        "word": "incorrigible",
+        "definition": "incapable of being reformed"
+    },
+    {
+        "word": "indolent",
+        "definition": "lazy"
+    },
+    {
+        "word": "indulgent",
+        "definition": "lenient; yielding to desire"
+    },
+    {
+        "word": "inevitable",
+        "definition": "inescapable; unavoidable"
+    },
+    {
+        "word": "ineluctable",
+        "definition": "inescapable; unavoidable"
+    },
+    {
+        "word": "inept",
+        "definition": "clumsy; incompetent"
+    },
+    {
+        "word": "inert",
+        "definition": "inactive; sluggish; not reacting chemically"
+    },
+    {
+        "word": "inexorable",
+        "definition": "relentless; inevitable; unavoidable"
+    },
+    {
+        "word": "inherent",
+        "definition": "part of the essential nature of something; intrinsic"
+    },
+    {
+        "word": "inundate",
+        "definition": "to flood; to overwhelm"
+    },
+    {
+        "word": "inveterate",
+        "definition": "habitual; deeply rooted"
+    },
+    {
+        "word": "itinerant",
+        "definition": "moving from place to place"
+    },
+    {
+        "word": "judicious",
+        "definition": "exercising sound judgment"
+    }
+]
