@@ -2,513 +2,335 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Squares & Cubes Speed Drill</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GRE SRS Flashcards</title>
   <style>
     :root {
-      --bg: #0f172a;
-      /* slate-900 */
+      --bg: #0b1220;
       --card: #111827;
-      /* gray-900 */
       --ink: #e5e7eb;
-      /* gray-200 */
       --muted: #9ca3af;
-      /* gray-400 */
       --accent: #22d3ee;
-      /* cyan-400 */
       --good: #22c55e;
-      /* green-500 */
       --bad: #ef4444;
-      /* red-500 */
-      --warn: #f59e0b;
-      /* amber-500 */
     }
 
     * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      height: 100%
-    }
-
-    body {
+      box-sizing: border-box;
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica, Arial, sans-serif;
-      background: radial-gradient(80% 60% at 50% 0%, #111827 0%, #0b1224 55%, var(--bg) 100%);
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica, Arial;
+      /* background: linear-gradient(180deg, #0b1220 0%, #0c1224 60%, #0f172a 100%); */
+      background-color: #0b1220;
       color: var(--ink);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .app {
-      width: min(900px, 100%);
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 20px 22px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .35)
-    }
-
-    h1 {
-      margin: 0 0 6px;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
-
-    .sub {
-      color: var(--muted);
-      margin-bottom: 14px
-    }
-
-    .row {
-      display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      align-items: center
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
     }
 
-    .row>* {
-      flex: 0 0 auto
+    header h1 {
+      font-size: 20px;
+      font-weight: 600;
     }
 
-    .pill {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 999px;
-      padding: 8px 12px;
-      cursor: pointer;
-      user-select: none
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
     }
 
-    .pill[aria-pressed="true"] {
-      background: rgba(34, 211, 238, .15);
-      border-color: rgba(34, 211, 238, .5);
-      color: #cffafe
-    }
-
-    label {
-      font-size: 14px;
-      color: var(--muted)
-    }
-
-    input[type="number"] {
-      width: 90px;
+    select,
+    button,
+    input[type=file] {
+      background: #0f172a;
+      border: 1px solid #1f2937;
+      color: var(--ink);
       padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: #0b1020;
-      color: var(--ink)
+      border-radius: 8px;
+      font-size: 14px;
     }
 
     button {
-      background: var(--accent);
-      color: #001018;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      padding: 10px 14px;
-      cursor: pointer
+      cursor: pointer;
     }
 
-    button:disabled {
-      opacity: .5;
-      cursor: not-allowed
+    button.good {
+      border-color: #14532d;
     }
 
-    .hr {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.08);
-      margin: 14px 0
+    button.bad {
+      border-color: #7f1d1d;
     }
 
-    .stage {
-      display: none
+    button:active {
+      transform: scale(0.97);
     }
 
-    .stage.active {
-      display: block
-    }
-
-    .qwrap {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px;
-      align-items: center
-    }
-
-    .qtext {
-      font-size: 26px;
-      font-weight: 800
-    }
-
-    .answer {
-      display: flex;
-      gap: 10px;
-      align-items: center
-    }
-
-    .answer input {
-      width: 200px;
-      font-size: 22px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: #0b1020;
-      color: var(--ink)
+    .card {
+      background: var(--card);
+      border: 1px solid #1f2937;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
     }
 
     .meta {
       display: flex;
-      gap: 18px;
-      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
       color: var(--muted);
-      margin-top: 10px
+      margin-bottom: 10px;
     }
 
-    .timer {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      position: relative;
-      display: grid;
-      place-items: center;
-    }
-
-    .timer svg {
-      position: absolute;
-      inset: 0;
-      transform: rotate(-90deg)
-    }
-
-    .timer .num {
-      font-weight: 900;
-      font-size: 26px
-    }
-
-    .ring {
-      stroke: var(--accent);
-      stroke-width: 10;
-      fill: none;
-      stroke-linecap: round;
-      filter: drop-shadow(0 0 6px rgba(34, 211, 238, .6))
-    }
-
-    .toast {
-      margin-top: 10px;
-      font-weight: 700
-    }
-
-    .toast.good {
-      color: var(--good)
-    }
-
-    .toast.bad {
-      color: var(--bad)
-    }
-
-    .toast.warn {
-      color: var(--warn)
-    }
-
-    .score {
-      margin-top: 14px;
-      font-size: 14px;
-      color: var(--muted)
-    }
-
-    .kbd {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      background: #0b1020;
-      border: 1px solid rgba(255, 255, 255, .12);
+    .tag {
+      background: #0f172a;
+      border: 1px solid #1f2937;
       border-radius: 6px;
-      padding: 2px 6px
+      padding: 3px 8px;
     }
 
-    .summary {
-      display: grid;
-      gap: 8px
+    .face {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 140px;
+      border-radius: 10px;
+      padding: 16px;
     }
 
-    .summary h2 {
-      margin: 0
+    .front {
+      font-size: 28px;
+      font-weight: 700;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px
+    .back {
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: left;
     }
 
-    .tile {
-      background: #0b1020;
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 12px;
-      padding: 12px
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .controls button {
+      flex: 1;
+      min-width: 100px;
     }
   </style>
 </head>
 
 <body>
-  <div class="app card">
-    <h1>Squares & Cubes Speed Drill</h1>
-    <div class="sub">Practice under time pressure. You get <strong>5 seconds</strong> per question. Choose type and
-      number of questions, then press <em>Start</em>.</div>
-
-    <!-- Controls -->
-    <div class="row" role="group" aria-label="Quiz type">
-      <div id="mode-sq" class="pill" role="button" aria-pressed="true" tabindex="0">Squares (11–25)</div>
-      <div id="mode-cu" class="pill" role="button" aria-pressed="false" tabindex="0">Cubes (1–20)</div>
-      <div style="margin-left:auto"></div>
-      <label for="qcount">Questions</label>
-      <input id="qcount" type="number" min="1" max="200" value="20" />
-      <button id="startBtn">Start ▶</button>
-    </div>
-
-    <div class="hr"></div>
-
-    <!-- Quiz Stage -->
-    <div id="stage-quiz" class="stage">
-      <div class="qwrap">
-        <div class="qtext" id="qText">Question will appear here</div>
-        <div class="timer" aria-label="time left">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <circle cx="50" cy="50" r="44" stroke="rgba(255,255,255,.08)" stroke-width="10" fill="none"></circle>
-            <circle id="ring" class="ring" cx="50" cy="50" r="44" stroke-dasharray="276.46" stroke-dashoffset="0">
-            </circle>
-          </svg>
-          <div class="num" id="tNum">5</div>
-        </div>
+  <div class="wrap">
+    <header>
+      <h1>GRE Flashcards</h1>
+      <div class="bar">
+        <select id="listSelect">
+          <option value="gre_list1.json">List 1</option>
+        </select>
+        <button id="loadBtn">Load</button>
+        <input id="uploadInput" type="file" accept=".json" />
+        <button id="exportBtn">Export</button>
+        <button id="resetBtn">Reset</button>
       </div>
+    </header>
 
-      <div class="answer">
-        <input id="answer" type="number" inputmode="numeric" autocomplete="off" placeholder="Your answer" />
-        <button id="submitBtn">Submit</button>
-      </div>
-
+    <section class="card">
       <div class="meta">
-        <div><span id="idx">0</span>/<span id="total">0</span></div>
-        <div>Score: <strong id="score">0</strong></div>
-        <div>Press <span class="kbd">Enter</span> to submit</div>
-      </div>
-
-      <div id="toast" class="toast" aria-live="polite"></div>
-    </div>
-
-    <!-- Summary Stage -->
-    <div id="stage-summary" class="stage">
-      <div class="summary">
-        <h2>Great job! 🎉</h2>
-        <div class="grid">
-          <div class="tile">Correct: <strong id="corr"></strong></div>
-          <div class="tile">Wrong/Timeout: <strong id="wrong"></strong></div>
-          <div class="tile">Accuracy: <strong id="acc"></strong></div>
-          <div class="tile">Time per Q: <strong>5s fixed</strong></div>
+        <div>
+          <span class="tag">Due: <span id="dueCount">0</span></span>
+          <span class="tag">Mastered: <span id="masteredCount">0</span></span>
+          <span class="tag">Total: <span id="totalCount">0</span></span>
         </div>
         <div>
-          <button id="again">Go Again</button>
+          <span class="tag">Score: <span id="scoreBadge">0</span></span>
+          <span class="tag">Reps: <span id="repsBadge">0</span></span>
         </div>
       </div>
-    </div>
 
+      <div id="cardFace" class="face front">Load a list to begin</div>
+
+      <div class="controls">
+        <button id="revealBtn">Reveal</button>
+        <button id="forgotBtn" class="bad">I Forgot</button>
+        <button id="gotBtn" class="good">Got It</button>
+        <button id="skipBtn">Skip</button>
+        <button id="flipBtn">Flip</button>
+      </div>
+    </section>
   </div>
 
   <script>
-    (function () {
-      const modeSq = document.getElementById('mode-sq');
-      const modeCu = document.getElementById('mode-cu');
-      const qcount = document.getElementById('qcount');
-      const startBtn = document.getElementById('startBtn');
+    (() => {
+      // ---------- Helpers
+      const $ = sel => document.querySelector(sel);
+      const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+      const save = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+      const load = (k, f) => JSON.parse(localStorage.getItem(k) || JSON.stringify(f));
 
-      const stageQuiz = document.getElementById('stage-quiz');
-      const stageSummary = document.getElementById('stage-summary');
+      // ---------- Elements
+      const listSelect = $('#listSelect'), loadBtn = $('#loadBtn'),
+        uploadInput = $('#uploadInput'), exportBtn = $('#exportBtn'), resetBtn = $('#resetBtn'),
+        cardFace = $('#cardFace'), revealBtn = $('#revealBtn'), flipBtn = $('#flipBtn'),
+        forgotBtn = $('#forgotBtn'), gotBtn = $('#gotBtn'), skipBtn = $('#skipBtn'),
+        dueCount = $('#dueCount'), masteredCount = $('#masteredCount'),
+        totalCount = $('#totalCount'), scoreBadge = $('#scoreBadge'), repsBadge = $('#repsBadge');
 
-      const qText = document.getElementById('qText');
-      const tNum = document.getElementById('tNum');
-      const ring = document.getElementById('ring');
-      const ans = document.getElementById('answer');
-      const submitBtn = document.getElementById('submitBtn');
-      const toast = document.getElementById('toast');
-      const idxEl = document.getElementById('idx');
-      const totalEl = document.getElementById('total');
-      const scoreEl = document.getElementById('score');
+      // ---------- State
+      let words = [], listName = 'gre_list1.json', progress = {};
+      let flashing = [], learning = [], reviewing = [], pool = [];
+      let currentKey = null, currentList = null, frontMode = load('srs_front_mode', 'word');
+      let revealed = false, flashStreak = 0, flashesSinceReview = 0;
+      const STORAGE_KEY = () => `srs_${listName}`;
 
-      const corrEl = document.getElementById('corr');
-      const wrongEl = document.getElementById('wrong');
-      const accEl = document.getElementById('acc');
-      const againBtn = document.getElementById('again');
-
-      let currentMode = 'sq'; // 'sq' or 'cu'
-      let timerId = null;
-      const TIME_PER_Q = 5; // seconds
-      const CIRC = 2 * Math.PI * 44; // circle path length
-
-      let questions = [];
-      let i = 0;
-      let score = 0;
-
-      function setMode(mode) {
-        currentMode = mode;
-        modeSq.setAttribute('aria-pressed', mode === 'sq');
-        modeCu.setAttribute('aria-pressed', mode === 'cu');
+      function setAnswerButtonsVisible(en) {
+        gotBtn.style.display = en ? 'inline-block' : 'none';
+        forgotBtn.style.display = en ? 'inline-block' : 'none';
+        gotBtn.disabled = !en; forgotBtn.disabled = !en;
       }
-      modeSq.addEventListener('click', () => setMode('sq'));
-      modeCu.addEventListener('click', () => setMode('cu'));
-      modeSq.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { setMode('sq'); } });
-      modeCu.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { setMode('cu'); } });
 
-      function range(n) { return Array.from({ length: n }, (_, k) => k + 1); }
+      // ---------- Load/Init
+      async function loadFromUrl(file) {
+        listName = file;
+        try {
+          const res = await fetch(file, { cache: 'no-store' }); if (!res.ok) throw new Error();
+          const data = await res.json(); onListLoaded(Array.isArray(data) ? data : (data.words || []));
+        } catch (e) { alert("Couldn't load " + file + ". Use Upload instead."); }
+      }
 
-      function buildQuestions(mode, n) {
-        const out = [];
-        const randIntInclusive = (min, max) =>
-          Math.floor(Math.random() * (max - min + 1)) + min;
+      function onListLoaded(data) {
+        words = data; if (!Array.isArray(words) || !words.length) { alert("Invalid list."); return; }
+        const keys = words.map(w => w.word); progress = load(STORAGE_KEY(), {});
+        keys.forEach(k => {
+          const p = progress[k] || {};
+          progress[k] = {
+            score: typeof p.score === 'number' ? clamp(p.score, -5, 10) : 0, reps: p.reps | 0,
+            shows: p.shows | 0, answers: p.answers | 0, status: p.status || null, lastSeen: p.lastSeen || 0
+          };
+        });
+        flashing = []; learning = []; reviewing = []; pool = [];
+        keys.forEach(k => {
+          const st = progress[k].status;
+          if (st === 'flashing') flashing.push(k); else if (st === 'learning') learning.push(k);
+          else if (st === 'reviewing') reviewing.push(k); else pool.push(k);
+        });
+        fillFlashingFromPool(); save(STORAGE_KEY(), progress); computeStats(); pickNext();
+      }
 
-        if (mode === 'sq') {
-          // squares from 11..25
-          for (let k = 0; k < n; k++) {
-            const a = randIntInclusive(16, 24);
-            const direction = Math.random() < 0.5 ? 'forward' : 'reverse';
-            if (direction === 'forward') {
-              out.push({
-                prompt: `Square of ${a} is _______`,
-                answer: String(a * a),
-                explain: `${a} × ${a} = ${a * a}`
-              });
-            } else {
-              const sq = a * a;
-              out.push({
-                prompt: `Under root ${sq} is _______`,
-                answer: String(a),
-                explain: `√${sq} = ${a}`
-              });
-            }
-          }
-        } else {
-          // cubes from 4..20
-          for (let k = 0; k < n; k++) {
-            const a = randIntInclusive(4, 20);
-            const direction = Math.random() < 0.5 ? 'forward' : 'reverse';
-            if (direction === 'forward') {
-              out.push({
-                prompt: `Cube of ${a} is _______`,
-                answer: String(a * a * a),
-                explain: `${a} × ${a} × ${a} = ${a * a * a}`
-              });
-            } else {
-              const cu = a * a * a;
-              out.push({
-                prompt: `Cube root of ${cu} is _______`,
-                answer: String(a),
-                explain: `∛${cu} = ${a}`
-              });
-            }
-          }
+      function fillFlashingFromPool() {
+        while (flashing.length < 11 && pool.length > 0) {
+          const k = pool.shift();
+          flashing.push(k); progress[k].status = 'flashing';
         }
-        return out;
+        save(STORAGE_KEY(), progress);
       }
 
-
-
-      function show(el) { el.classList.add('active'); }
-      function hide(el) { el.classList.remove('active'); }
-
-      function start() {
-        const n = Math.max(1, Math.min(200, Number(qcount.value || 20)));
-        questions = buildQuestions(currentMode, n);
-        i = 0; score = 0;
-        scoreEl.textContent = '0';
-        totalEl.textContent = String(questions.length);
-        toast.textContent = '';
-        hide(stageSummary); show(stageQuiz);
-        next();
+      // ---------- Selection
+      function pickNext() {
+        if (flashesSinceReview >= 11 && reviewing.length) { currentList = 'reviewing'; flashesSinceReview = 0; currentKey = pickFrom(reviewing); }
+        else if (flashStreak >= 5 && learning.length) { currentList = 'learning'; flashStreak = 0; currentKey = pickFrom(learning); }
+        else if (flashing.length) { currentList = 'flashing'; currentKey = pickFrom(flashing); }
+        else if (learning.length) { currentList = 'learning'; currentKey = pickFrom(learning); }
+        else if (reviewing.length) { currentList = 'reviewing'; currentKey = pickFrom(reviewing); }
+        else { currentKey = null; currentList = null; }
+        renderFront();
       }
 
-      function startTimer() {
-        clearInterval(timerId);
-        let left = TIME_PER_Q; // seconds
-        tNum.textContent = left;
-        ring.setAttribute('stroke-dasharray', CIRC);
-        ring.setAttribute('stroke-dashoffset', '0');
-        const step = 100; // ms
-        let elapsed = 0;
-        timerId = setInterval(() => {
-          elapsed += step;
-          const frac = Math.min(1, elapsed / (TIME_PER_Q * 1000));
-          const remain = Math.ceil((TIME_PER_Q * 1000 - elapsed) / 1000);
-          tNum.textContent = Math.max(0, remain);
-          ring.setAttribute('stroke-dashoffset', String(frac * CIRC));
-          if (frac >= 1) {
-            clearInterval(timerId);
-            reveal(false, true); // timeout counts as wrong
-          }
-        }, step);
+      function pickFrom(arr) {
+        const ranked = arr.slice().sort((a, b) => {
+          const pa = progress[a], pb = progress[b]; if (pa.score !== pb.score) return pa.score - pb.score;
+          if (pa.lastSeen !== pb.lastSeen) return pa.lastSeen - pb.lastSeen; return pa.reps - pb.reps;
+        });
+        return ranked[Math.floor(Math.random() * Math.min(3, ranked.length))];
       }
 
-      function ask(q) {
-        qText.textContent = q.prompt;
-        ans.value = '';
-        ans.focus();
-        idxEl.textContent = String(i + 1);
-        startTimer();
+      // ---------- Render
+      function renderFront() {
+        revealed = false; setAnswerButtonsVisible(false);
+        if (!currentKey) { cardFace.className = 'face front'; cardFace.textContent = '🎉 All done!'; return; }
+        const w = words.find(x => x.word === currentKey), p = progress[currentKey];
+        p.shows = (p.shows | 0) + 1; p.lastSeen = Date.now(); save(STORAGE_KEY(), progress);
+        if (currentList === 'flashing') { flashStreak++; flashesSinceReview++; }
+        cardFace.className = 'face front';
+        cardFace.textContent = frontMode === 'word' ? w.word : (w.definition || '—');
+        scoreBadge.textContent = p.score; repsBadge.textContent = p.reps;
       }
 
-      function reveal(isCorrect, timedOut = false) {
-        clearInterval(timerId);
-        const q = questions[i];
-        if (isCorrect) {
-          toast.textContent = 'Correct! ' + q.explain;
-          toast.className = 'toast good';
-          score++; scoreEl.textContent = String(score);
-        } else if (timedOut) {
-          toast.textContent = `⏱️ Time up! ${q.explain}`;
-          toast.className = 'toast warn';
-        } else {
-          toast.textContent = `Wrong. ${q.explain}`;
-          toast.className = 'toast bad';
-        }
-        setTimeout(() => {
-          i++;
-          if (i < questions.length) next(); else finish();
-        }, 650);
+      function reveal() {
+        if (!currentKey) return; const w = words.find(x => x.word === currentKey);
+        cardFace.className = 'face back';
+        cardFace.innerHTML = `<div><div style="font-size:22px;font-weight:700;margin-bottom:8px">${w.word}</div>
+          <div style="font-size:18px;line-height:1.5">${w.definition || '—'}</div></div>`;
+        revealed = true; setAnswerButtonsVisible(true);
       }
 
-      function submit() {
-        const q = questions[i];
-        const val = (ans.value || '').trim();
-        if (val === '') return; // ignore empty
-        const ok = val === q.answer;
-        reveal(ok, false);
+      function flipFrontBack() {
+        frontMode = (frontMode === 'word' ? 'definition' : 'word'); save('srs_front_mode', frontMode);
+        const cls = cardFace.className; if (cls.includes('front')) renderFront(); else reveal();
       }
 
-      function next() {
-        toast.textContent = '';
-        ask(questions[i]);
+      // ---------- Actions
+      function onResult(delta) {
+        if (!revealed || !currentKey) return; const p = progress[currentKey], pre = p.answers | 0;
+        p.answers = pre + 1; p.reps = (p.reps | 0) + 1;
+        if (currentList === 'flashing') {
+          if (delta > 0 && pre === 0) p.score = clamp((p.score || 0) + 5, -5, 10); else p.score = clamp((p.score || 0) + delta, -5, 10);
+          if (p.score >= 5) { flashing = flashing.filter(k => k !== currentKey); p.status = 'learning'; learning.push(currentKey); fillFlashingFromPool(); }
+        } else if (currentList === 'learning') {
+          if (delta > 0) { p.score = clamp((p.score || 0) + 1, -5, 10); if (p.score >= 10) { learning = learning.filter(k => k !== currentKey); p.status = 'reviewing'; reviewing.push(currentKey); } }
+          else { learning = learning.filter(k => k !== currentKey); p.status = 'flashing'; p.score = 0; flashing.push(currentKey); }
+        } else if (currentList === 'reviewing') { p.score = clamp((p.score || 0) + (delta > 0 ? 1 : -1), -5, 50); }
+        save(STORAGE_KEY(), progress); computeStats(); pickNext();
       }
 
-      function finish() {
-        hide(stageQuiz); show(stageSummary);
-        corrEl.textContent = String(score);
-        const wrong = questions.length - score;
-        wrongEl.textContent = String(wrong);
-        const acc = questions.length ? Math.round((score / questions.length) * 100) : 0;
-        accEl.textContent = acc + '%';
+      function computeStats() {
+        totalCount.textContent = words.length;
+        masteredCount.textContent = Object.values(progress).filter(p => (p.score || 0) >= 5).length;
+        dueCount.textContent = new Set([...flashing, ...learning, ...reviewing]).size;
       }
 
-      // events
-      startBtn.addEventListener('click', start);
-      againBtn.addEventListener('click', () => {
-        hide(stageSummary);
-        show(stageQuiz);
-      });
-      submitBtn.addEventListener('click', submit);
-      ans.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+      function exportProgress() {
+        const merged = words.map(w => ({ ...w, ...progress[w.word] }));
+        const blob = new Blob([JSON.stringify(merged, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = listName.replace(/\.json$/, '') + '_progress.json'; a.click();
+      }
+
+      function resetAll() { if (!confirm('Reset?')) return; localStorage.removeItem(STORAGE_KEY()); onListLoaded(words); }
+
+      // ---------- Wire
+      loadBtn.onclick = () => loadFromUrl(listSelect.value);
+      uploadInput.onchange = async e => {
+        const f = e.target.files?.[0]; if (!f) return;
+        listName = f.name; onListLoaded(JSON.parse(await f.text()));
+      };
+      exportBtn.onclick = exportProgress; resetBtn.onclick = resetAll;
+      revealBtn.onclick = reveal; flipBtn.onclick = flipFrontBack;
+      forgotBtn.onclick = () => onResult(-1); gotBtn.onclick = () => onResult(1); skipBtn.onclick = pickNext;
+
+      setAnswerButtonsVisible(false); loadFromUrl(listSelect.value);
     })();
   </script>
 </body>
