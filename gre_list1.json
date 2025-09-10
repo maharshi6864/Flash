@@ -1,0 +1,772 @@
+[
+  {
+    "word": "aberrant",
+    "definition": "deviating from the norm; eccentric, abnormal, weird",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271692910
+  },
+  {
+    "word": "abscond",
+    "definition": "to depart clandestinely; to steal off and hide",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271709928
+  },
+  {
+    "word": "alacrity",
+    "definition": "eager and enthusiastic willingness",
+    "score": 8,
+    "reps": 20,
+    "shows": 20,
+    "answers": 20,
+    "status": "learning",
+    "lastSeen": 1757271831973
+  },
+  {
+    "word": "anomaly",
+    "definition": "deviation from the normal order, form, or rule; abnormality",
+    "score": 9,
+    "reps": 5,
+    "shows": 5,
+    "answers": 5,
+    "status": "learning",
+    "lastSeen": 1757272008359
+  },
+  {
+    "word": "approbation",
+    "definition": "an expression of approval",
+    "score": 9,
+    "reps": 5,
+    "shows": 5,
+    "answers": 5,
+    "status": "learning",
+    "lastSeen": 1757272006179
+  },
+  {
+    "word": "arduous",
+    "definition": "strenuous; taxing; requiring significant effort; burdensome",
+    "score": 8,
+    "reps": 20,
+    "shows": 20,
+    "answers": 20,
+    "status": "learning",
+    "lastSeen": 1757272001558
+  },
+  {
+    "word": "assuage",
+    "definition": "to ease or lessen; to appease or pacify; mollify, alleviate",
+    "score": 9,
+    "reps": 5,
+    "shows": 5,
+    "answers": 5,
+    "status": "learning",
+    "lastSeen": 1757272011577
+  },
+  {
+    "word": "audacious",
+    "definition": "daring and fearless; recklessly bold",
+    "score": 9,
+    "reps": 5,
+    "shows": 5,
+    "answers": 5,
+    "status": "learning",
+    "lastSeen": 1757272009894
+  },
+  {
+    "word": "austere",
+    "definition": "without adornment; bare; severely simple; ascetic",
+    "score": 8,
+    "reps": 4,
+    "shows": 5,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757272015378
+  },
+  {
+    "word": "axiomatic",
+    "definition": "possessing self-evident truth",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271695610
+  },
+  {
+    "word": "canonical",
+    "definition": "following or in agreement with accepted, traditional standards",
+    "score": 8,
+    "reps": 12,
+    "shows": 12,
+    "answers": 12,
+    "status": "learning",
+    "lastSeen": 1757271706795
+  },
+  {
+    "word": "capricious",
+    "definition": "inclined to change oneâs mind impulsively; erratic; unpredictable",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271733718
+  },
+  {
+    "word": "censure",
+    "definition": "to criticize severely; rebuke officially",
+    "score": 9,
+    "reps": 5,
+    "shows": 5,
+    "answers": 5,
+    "status": "learning",
+    "lastSeen": 1757272013943
+  },
+  {
+    "word": "chicanery",
+    "definition": "trickery or subterfuge; fraud; deception",
+    "score": 8,
+    "reps": 12,
+    "shows": 13,
+    "answers": 12,
+    "status": "learning",
+    "lastSeen": 1757271741403
+  },
+  {
+    "word": "connoisseur",
+    "definition": "an informed and astute judge in matters of taste; expert",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271698994
+  },
+  {
+    "word": "convoluted",
+    "definition": "complex or complicated; twisted",
+    "score": 8,
+    "reps": 12,
+    "shows": 12,
+    "answers": 12,
+    "status": "learning",
+    "lastSeen": 1757271727635
+  },
+  {
+    "word": "disabuse",
+    "definition": "to undecieve; to set right",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271739620
+  },
+  {
+    "word": "discordant",
+    "definition": "conflicting; dissonant or harsh in sound",
+    "score": 8,
+    "reps": 4,
+    "shows": 5,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757274708948
+  },
+  {
+    "word": "disparate",
+    "definition": "fundamentally distinct or dissimilar; unequal",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271700477
+  },
+  {
+    "word": "effrontery",
+    "definition": "extreme boldness; presumptuousness",
+    "score": 8,
+    "reps": 18,
+    "shows": 18,
+    "answers": 18,
+    "status": "learning",
+    "lastSeen": 1757271720714
+  },
+  {
+    "word": "eloquent",
+    "definition": "well-spoken; expressive; articulate",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271704363
+  },
+  {
+    "word": "enervate",
+    "definition": "to weaken; to reduce in vitality",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271717530
+  },
+  {
+    "word": "ennui",
+    "definition": "dissatisfaction and restlessness resulting from boredom or apathy",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271702644
+  },
+  {
+    "word": "equivocate",
+    "definition": "to use ambiguous language with a deceptive intent",
+    "score": 8,
+    "reps": 4,
+    "shows": 5,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271818319
+  },
+  {
+    "word": "erudite",
+    "definition": "very learned; scholarly",
+    "score": 8,
+    "reps": 16,
+    "shows": 16,
+    "answers": 16,
+    "status": "learning",
+    "lastSeen": 1757271781746
+  },
+  {
+    "word": "exculpate",
+    "definition": "to exonerate; to clear of blame; vindicate",
+    "score": 8,
+    "reps": 16,
+    "shows": 16,
+    "answers": 16,
+    "status": "learning",
+    "lastSeen": 1757271788580
+  },
+  {
+    "word": "exigent",
+    "definition": "urgent; pressing; requiring immediate action or attention",
+    "score": 8,
+    "reps": 10,
+    "shows": 11,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271975336
+  },
+  {
+    "word": "extemporaneous",
+    "definition": "improvised; done without preparation",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271816369
+  },
+  {
+    "word": "filibuster",
+    "definition": "intentional obstruction, esp. prolonged speechmaking to delay action",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271840656
+  },
+  {
+    "word": "fulminate",
+    "definition": "to loudly attack or denounce",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271805450
+  },
+  {
+    "word": "ingenious",
+    "definition": "artless; frank and candid; lacking in sophistication; honest",
+    "score": 8,
+    "reps": 10,
+    "shows": 13,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271842407
+  },
+  {
+    "word": "inured",
+    "definition": "accustomed to accepting something undesirable",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271736252
+  },
+  {
+    "word": "irascible",
+    "definition": "easily angered; prone to temperamental outbursts; irritable",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271724284
+  },
+  {
+    "word": "laud",
+    "definition": "to praise highly",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271787062
+  },
+  {
+    "word": "lucid",
+    "definition": "clear; easily understood; limpid",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271854960
+  },
+  {
+    "word": "magnanimity",
+    "definition": "the quality of being generously noble in mind and heart, esp. in forgiving",
+    "score": 8,
+    "reps": 10,
+    "shows": 12,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271930409
+  },
+  {
+    "word": "martial",
+    "definition": "associated with war and the armed forces",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271731286
+  },
+  {
+    "word": "mundane",
+    "definition": "of the world; typical of or concerned with the ordinary; commonplace",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271909105
+  },
+  {
+    "word": "nascent",
+    "definition": "coming into being; in early developmental stages; incipient",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271852460
+  },
+  {
+    "word": "nebulous",
+    "definition": "vague; cloudy; lacking clearly defined form; hazy",
+    "score": 8,
+    "reps": 10,
+    "shows": 15,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271857412
+  },
+  {
+    "word": "neologism",
+    "definition": "a new word, expression, or usage; the creation or use of new words or senses",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271820986
+  },
+  {
+    "word": "noxious",
+    "definition": "harmful; injurious; pernicious",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271803216
+  },
+  {
+    "word": "obtuse",
+    "definition": "lacking sharpness of intellect; not clear or precise in thought or expression",
+    "score": 8,
+    "reps": 10,
+    "shows": 15,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271899602
+  },
+  {
+    "word": "obviate",
+    "definition": "to anticipate and make unnecessary",
+    "score": 7,
+    "reps": 22,
+    "shows": 26,
+    "answers": 22,
+    "status": "learning",
+    "lastSeen": 1757274710578
+  },
+  {
+    "word": "onerous",
+    "definition": "troubling; burdensome",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271823522
+  },
+  {
+    "word": "paean",
+    "definition": "a song or hymn of praise and thanks giving",
+    "score": 8,
+    "reps": 10,
+    "shows": 15,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271868330
+  },
+  {
+    "word": "parody",
+    "definition": "a humorous imitation intended for ridicule or comic effect, esp. in literature and art",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271814620
+  },
+  {
+    "word": "perennial",
+    "definition": "recurrent through the year or many years; happening repeatedly",
+    "score": 8,
+    "reps": 10,
+    "shows": 25,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271866713
+  },
+  {
+    "word": "perfidy",
+    "definition": "intentional breach of faith; treachery",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271825205
+  },
+  {
+    "word": "perfunctory",
+    "definition": "cursory; done without care or interest; done superficially",
+    "score": 8,
+    "reps": 10,
+    "shows": 13,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271878749
+  },
+  {
+    "word": "perspicacious",
+    "definition": "acutely perceptive; having keen discernment; sharp-minded",
+    "score": 8,
+    "reps": 4,
+    "shows": 7,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271860163
+  },
+  {
+    "word": "prattle",
+    "definition": "to babble meaninglessly; to talk in an empty and idle manner",
+    "score": 8,
+    "reps": 10,
+    "shows": 13,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271907104
+  },
+  {
+    "word": "precipitate",
+    "definition": "acting with excessive haste or impulse",
+    "score": 8,
+    "reps": 4,
+    "shows": 6,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271844008
+  },
+  {
+    "word": "precipitate (v)",
+    "definition": "to cause or happen before anticipated or required",
+    "score": 8,
+    "reps": 12,
+    "shows": 14,
+    "answers": 12,
+    "status": "learning",
+    "lastSeen": 1757271920175
+  },
+  {
+    "word": "predilection",
+    "definition": "a disposition in favor of something; preference; a special liking",
+    "score": 8,
+    "reps": 10,
+    "shows": 11,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271904604
+  },
+  {
+    "word": "prescience",
+    "definition": "foreknowledge of events; knowing of events prior to their occurring",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271850726
+  },
+  {
+    "word": "prevaricate",
+    "definition": "to deliberately avoid the truth; to mislead",
+    "score": 8,
+    "reps": 25,
+    "shows": 25,
+    "answers": 25,
+    "status": "learning",
+    "lastSeen": 1757271993472
+  },
+  {
+    "word": "qualms",
+    "definition": "misgivings; reservations; causes for hesitancy; doubts",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271914991
+  },
+  {
+    "word": "recant",
+    "definition": "to retract, esp. a previously held belief",
+    "score": 8,
+    "reps": 10,
+    "shows": 11,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271910840
+  },
+  {
+    "word": "refute",
+    "definition": "to disprove; to successfully argue against",
+    "score": 8,
+    "reps": 12,
+    "shows": 15,
+    "answers": 12,
+    "status": "learning",
+    "lastSeen": 1757271934511
+  },
+  {
+    "word": "relegate",
+    "definition": "to forcibly assign, esp. to a lower place or position",
+    "score": 8,
+    "reps": 18,
+    "shows": 25,
+    "answers": 18,
+    "status": "learning",
+    "lastSeen": 1757271982586
+  },
+  {
+    "word": "reticent",
+    "definition": "quiet; reserved; reluctant to express thoughts and feelings; taciturn",
+    "score": 8,
+    "reps": 12,
+    "shows": 15,
+    "answers": 12,
+    "status": "learning",
+    "lastSeen": 1757271928343
+  },
+  {
+    "word": "solicitous",
+    "definition": "concerned and attentive; eager",
+    "score": 7,
+    "reps": 15,
+    "shows": 23,
+    "answers": 15,
+    "status": "learning",
+    "lastSeen": 1757274713727
+  },
+  {
+    "word": "sordid",
+    "definition": "characterized by filth, grime, or squalor; foul",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271943246
+  },
+  {
+    "word": "sporadic",
+    "definition": "occurring only occasionally, or in scattered instances",
+    "score": 8,
+    "reps": 19,
+    "shows": 19,
+    "answers": 19,
+    "status": "learning",
+    "lastSeen": 1757271977435
+  },
+  {
+    "word": "squander",
+    "definition": "to waste by spending or using irresponsibly",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271913273
+  },
+  {
+    "word": "static",
+    "definition": "not moving, active, or in motion; at rest; stationary",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271923291
+  },
+  {
+    "word": "stupify",
+    "definition": "to stun, baffle, or amaze; bewilder; confuse",
+    "score": 8,
+    "reps": 10,
+    "shows": 11,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271939745
+  },
+  {
+    "word": "stymie",
+    "definition": "to block; thwart",
+    "score": 8,
+    "reps": 10,
+    "shows": 11,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271949081
+  },
+  {
+    "word": "synthesis",
+    "definition": "the combination of parts to make a whole",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271916440
+  },
+  {
+    "word": "torque",
+    "definition": "a force that causes rotation",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271937778
+  },
+  {
+    "word": "tortuous",
+    "definition": "winding; twisting; excessively complicated",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271968068
+  },
+  {
+    "word": "truculent",
+    "definition": "fierce and cruel; eager to fight",
+    "score": 8,
+    "reps": 10,
+    "shows": 10,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271955031
+  },
+  {
+    "word": "veracity",
+    "definition": "truthfulness; honesty; authenticity",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271918457
+  },
+  {
+    "word": "virulent",
+    "definition": "extremely harmful or poisonous; bitterly hostile or antagonistic",
+    "score": 8,
+    "reps": 14,
+    "shows": 14,
+    "answers": 14,
+    "status": "learning",
+    "lastSeen": 1757271959434
+  },
+  {
+    "word": "voracious",
+    "definition": "having an insatiable appetite for an activity or pursuit; ravenous",
+    "score": 8,
+    "reps": 10,
+    "shows": 11,
+    "answers": 10,
+    "status": "learning",
+    "lastSeen": 1757271971835
+  },
+  {
+    "word": "waver",
+    "definition": "to move to and fro; to sway; to be unsettled in opinion",
+    "score": 8,
+    "reps": 4,
+    "shows": 4,
+    "answers": 4,
+    "status": "learning",
+    "lastSeen": 1757271963100
+  }
+]
