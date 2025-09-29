@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Word Lists Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;         /* slate-900 */
+      --panel: #111827;      /* gray-900 */
+      --muted: #94a3b8;      /* slate-400 */
+      --text: #e5e7eb;       /* gray-200 */
+      --accent: #6366f1;     /* indigo-500 */
+      --accent-2: #22d3ee;   /* cyan-400 */
+      --chip: #1f2937;       /* gray-800 */
+      --border: #1f2937;
+      --ring: rgba(99, 102, 241, .35);
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: linear-gradient(135deg, #0b1022 0%, #0f172a 60%, #0b1022 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      min-height: 100%;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 16px 48px;
+    }
+
+    header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      letter-spacing: .2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .title .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent));
+      box-shadow: 0 0 14px var(--accent);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 720px) {
+      .controls {
+        grid-template-columns: 1.1fr .9fr auto;
+        align-items: center;
+      }
+    }
+
+    .control {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+      background: rgba(255,255,255,.02);
+      padding: 10px 12px; border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    select, input[type="text"], .btn, label.file-label {
+      background: #0b1224;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      outline: none;
+      transition: box-shadow .2s ease, border-color .2s ease, transform .02s ease;
+    }
+    select:focus, input[type="text"]:focus {
+      box-shadow: 0 0 0 4px var(--ring);
+      border-color: var(--accent);
+    }
+
+    .btn {
+      cursor: pointer;
+      background: linear-gradient(135deg, rgba(99,102,241,.15), rgba(34,211,238,.10));
+      border: 1px solid rgba(99,102,241,.4);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .file-input { display: none; }
+    .file-label {
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+
+    .bar {
+      height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+      margin: 16px 0 10px;
+    }
+
+    .meta {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      font-size: 13px; color: var(--muted);
+    }
+    .chip {
+      background: var(--chip);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .list {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 720px) {
+      .list { grid-template-columns: 1fr 1fr; }
+    }
+
+    .card {
+      background: rgba(17,24,39,.7);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      backdrop-filter: blur(6px);
+      transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99,102,241,.45);
+      box-shadow: 0 6px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(99,102,241,.15) inset;
+    }
+    .word {
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    .def {
+      color: #cbd5e1;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+
+    .empty, .error {
+      padding: 18px;
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      border-radius: 12px;
+      background: rgba(255,255,255,.02);
+      text-align: center;
+    }
+    .error { color: #fca5a5; border-color: rgba(248,113,113,.35); }
+
+    .footer-note {
+      margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center;
+    }
+    a.link { color: #a5b4fc; text-decoration: none; }
+    a.link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title"><span class="dot"></span> Word Lists Viewer</div>
+      <div class="controls">
+        <!-- List picker -->
+        <div class="control" title="Pick a list from the folder (via manifest file)">
+          <span style="opacity:.75;">List:</span>
+          <select id="listSelector" aria-label="Word list selector">
+            <option value="" selected disabled>Loading lists…</option>
+          </select>
+          <button class="btn" id="reloadBtn" title="Reload manifest">↻ Reload</button>
+        </div>
+
+        <!-- Search -->
+        <div class="control" title="Search words or meanings">
+          <span style="opacity:.75;">Search:</span>
+          <input type="text" id="searchInput" placeholder="Type to filter…" />
+          <button class="btn" id="clearSearch">Clear</button>
+        </div>
+
+        <!-- Tools -->
+        <div class="control" title="Options">
+          <button class="btn" id="sortBtn" data-sorted="no">Sort A→Z</button>
+
+          <input class="file-input" type="file" id="filePicker" accept="application/json" multiple />
+          <label class="file-label btn" for="filePicker" title="Load JSON files from your computer">＋ Load JSON</label>
+        </div>
+      </div>
+    </header>
+
+    <div class="bar"></div>
+    <div class="meta">
+      <div class="chip" id="currentSource">No list loaded</div>
+      <div class="chip" id="countChip" style="display:none;"></div>
+      <div class="chip" id="filteredChip" style="display:none;"></div>
+    </div>
+
+    <div id="feedback" class="empty">Pick a list above or load a JSON file to begin.</div>
+    <div id="list" class="list" hidden></div>
+
+    <div class="footer-note">
+      Tip: Your JSON should be an array of objects like
+      <code>[{"word":"…","defination":"…"}]</code> — <em>the app also accepts</em> <code>definition</code>
+      (spelled correctly) and even a stray <code>" word"</code> key.
+    </div>
+  </div>
+
+  <script>
+    // --- Utilities -----------------------------------------------------------
+    function normalizeItem(raw) {
+      // Handle common misspellings/inconsistencies:
+      // "word", " word", "Word" etc.; "defination" or "definition"
+      const keys = Object.keys(raw || {});
+      // find best match ignoring spaces & case
+      const findKey = (candidates) => {
+        for (const cand of candidates) {
+          const k = keys.find(
+            k => k.trim().toLowerCase() === cand.toLowerCase()
+          );
+          if (k) return raw[k];
+        }
+        return undefined;
+      };
+    const word = findKey(["word"]);
+    const def  = findKey(["defination","definition"]);
+      if (word == null && def == null) return null;
+      return {
+        word: String(word ?? "").trim(),
+        definition: String(def ?? "").trim()
+      };
+    }
+
+    function normalizeList(arr) {
+      if (!Array.isArray(arr)) return [];
+      const out = [];
+      for (const row of arr) {
+        const n = normalizeItem(row);
+        if (n && (n.word || n.definition)) out.push(n);
+      }
+      return out;
+    }
+
+    function renderList(items) {
+      const listEl = document.getElementById('list');
+      const feedback = document.getElementById('feedback');
+      listEl.innerHTML = '';
+      if (!items.length) {
+        listEl.hidden = true;
+        feedback.className = 'empty';
+        feedback.textContent = 'No entries found.';
+        return;
+      }
+      const frag = document.createDocumentFragment();
+      for (const {word, definition} of items) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const w = document.createElement('div');
+        w.className = 'word';
+        w.textContent = word || '—';
+        const d = document.createElement('div');
+        d.className = 'def';
+        d.textContent = definition || '';
+        card.appendChild(w); card.appendChild(d);
+        frag.appendChild(card);
+      }
+      listEl.appendChild(frag);
+      listEl.hidden = false;
+      document.getElementById('feedback').className = 'empty';
+      document.getElementById('feedback').textContent = '';
+    }
+
+    function setMeta(source, total, filtered) {
+      const src = document.getElementById('currentSource');
+      const count = document.getElementById('countChip');
+      const filt = document.getElementById('filteredChip');
+      src.textContent = source || 'No list loaded';
+
+      if (typeof total === 'number') {
+        count.style.display = '';
+        count.textContent = `Total: ${total}`;
+      } else {
+        count.style.display = 'none';
+      }
+
+      if (typeof filtered === 'number' && filtered !== total) {
+        filt.style.display = '';
+        filt.textContent = `Showing: ${filtered}`;
+      } else {
+        filt.style.display = 'none';
+      }
+    }
+
+    // --- State --------------------------------------------------------------
+    let allItems = [];        // the list currently loaded (normalized)
+    let shownItems = [];      // filtered & sorted view
+    let currentSourceName = ''; // file label
+
+    function applySearchAndSort() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const sorted = document.getElementById('sortBtn').dataset.sorted === 'yes';
+
+      // filter
+      let filtered = !q ? [...allItems] : allItems.filter(it =>
+        (it.word && it.word.toLowerCase().includes(q)) ||
+        (it.definition && it.definition.toLowerCase().includes(q))
+      );
+
+      // sort
+      if (sorted) {
+        filtered.sort((a,b) => (a.word || '').localeCompare(b.word || '', undefined, {sensitivity:'base'}));
+      }
+
+      shownItems = filtered;
+      renderList(shownItems);
+      setMeta(currentSourceName, allItems.length, shownItems.length);
+    }
+
+    // --- Manifest loading ---------------------------------------------------
+    async function loadManifest() {
+      const selector = document.getElementById('listSelector');
+      selector.innerHTML = '<option disabled selected>Loading lists…</option>';
+      try {
+        const res = await fetch('wordlists-manifest.json', {cache: 'no-store'});
+        if (!res.ok) throw new Error('manifest missing');
+        const manifest = await res.json();
+
+        // Accept either array of strings or array of {label, file}
+        const items = Array.isArray(manifest) ? manifest : [];
+        const parsed = items.map(entry => {
+          if (typeof entry === 'string') return {label: entry, file: entry};
+          if (entry && typeof entry === 'object' && entry.file) {
+            return {label: entry.label || entry.file, file: entry.file};
+          }
+          return null;
+        }).filter(Boolean);
+
+        if (!parsed.length) throw new Error('empty manifest');
+
+        selector.innerHTML = '<option disabled selected>Select a list…</option>';
+        for (const it of parsed) {
+          const opt = document.createElement('option');
+          opt.value = it.file;
+          opt.textContent = it.label;
+          selector.appendChild(opt);
+        }
+      } catch (e) {
+        selector.innerHTML = '<option disabled selected>No manifest found. Use “Load JSON”.</option>';
+        setMeta('No list loaded');
+        document.getElementById('feedback').className = 'empty';
+        document.getElementById('feedback').textContent =
+          'No manifest file detected (wordlists-manifest.json). You can still load local JSON via “Load JSON”.';
+      }
+    }
+
+    async function loadFromFileUrl(filename) {
+      try {
+        const res = await fetch(filename, {cache: 'no-store'});
+        if (!res.ok) throw new Error(`Could not fetch ${filename}`);
+        const data = await res.json();
+        allItems = normalizeList(data);
+        currentSourceName = filename;
+        applySearchAndSort();
+      } catch (err) {
+        document.getElementById('list').hidden = true;
+        const fb = document.getElementById('feedback');
+        fb.className = 'error';
+        fb.textContent = `Failed to load "${filename}". Make sure it is valid JSON and served from the same folder (same origin).`;
+        setMeta('Load error');
+      }
+    }
+
+    // --- Local file loader --------------------------------------------------
+    function loadLocalFiles(files) {
+      if (!files || !files.length) return;
+      // If multiple selected, use the first by default and add the rest to the dropdown under "Local: <name>"
+      const selector = document.getElementById('listSelector');
+
+      // Clear any "no manifest" placeholder once we add local options
+      if (selector.options.length && selector.options[0].disabled) selector.innerHTML = '';
+
+      Array.from(files).forEach((file, idx) => {
+        const opt = document.createElement('option');
+        const tag = `Local: ${file.name}`;
+        opt.value = `__local__${file.name}`;
+        opt.textContent = tag;
+        opt.dataset.local = 'yes';
+        selector.appendChild(opt);
+
+        // Store file object for later selection
+        opt._fileBlob = file;
+
+        if (idx === 0) {
+          selector.value = opt.value;
+          readLocalFile(opt._fileBlob, tag);
+        }
+      });
+    }
+
+    function readLocalFile(file, label) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const json = JSON.parse(reader.result);
+          allItems = normalizeList(json);
+          currentSourceName = label;
+          applySearchAndSort();
+        } catch (e) {
+          const fb = document.getElementById('feedback');
+          fb.className = 'error';
+          fb.textContent = `Invalid JSON in "${file.name}".`;
+          setMeta('Load error');
+        }
+      };
+      reader.onerror = () => {
+        const fb = document.getElementById('feedback');
+        fb.className = 'error';
+        fb.textContent = `Could not read "${file.name}".`;
+        setMeta('Read error');
+      };
+      reader.readAsText(file);
+    }
+
+    // --- Events -------------------------------------------------------------
+    document.getElementById('reloadBtn').addEventListener('click', loadManifest);
+
+    document.getElementById('listSelector').addEventListener('change', (e) => {
+      const selected = e.target.selectedOptions[0];
+      if (!selected) return;
+      if (selected.dataset.local === 'yes') {
+        readLocalFile(selected._fileBlob, selected.textContent);
+      } else {
+        loadFromFileUrl(selected.value);
+      }
+    });
+
+    document.getElementById('filePicker').addEventListener('change', (e) => {
+      loadLocalFiles(e.target.files);
+      // allow re-selecting the same file later
+      e.target.value = '';
+    });
+
+    document.getElementById('searchInput').addEventListener('input', applySearchAndSort);
+    document.getElementById('clearSearch').addEventListener('click', () => {
+      document.getElementById('searchInput').value = '';
+      applySearchAndSort();
+    });
+
+    document.getElementById('sortBtn').addEventListener('click', (e) => {
+      const btn = e.currentTarget;
+      const now = btn.dataset.sorted === 'yes' ? 'no' : 'yes';
+      btn.dataset.sorted = now;
+      btn.textContent = now === 'yes' ? 'Sorted A→Z' : 'Sort A→Z';
+      applySearchAndSort();
+    });
+
+    // --- Init ---------------------------------------------------------------
+    loadManifest();
+    setMeta('No list loaded');
+  </script>
+</body>
+</html>
